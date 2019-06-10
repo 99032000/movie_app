@@ -1,5 +1,7 @@
 {
-  "name": "snow_weather",
-  "integrations": {},
+  "name": "movie",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
