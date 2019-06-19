@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDV_scbB0NBcEtXLLbJKFRUn0VpqavJeiE',
-    authDomain: 'ionic-final-5c3d5.firebaseapp.com',
-    databaseURL: 'https://ionic-final-5c3d5.firebaseio.com',
-    projectId: 'ionic-final-5c3d5',
-    storageBucket: '',
-    messagingSenderId: '1049109689091',
-    appId: '1:1049109689091:web:c59d284e7348d533'
+    apiKey: "AIzaSyDV_scbB0NBcEtXLLbJKFRUn0VpqavJeiE",
+    authDomain: "ionic-final-5c3d5.firebaseapp.com",
+    databaseURL: "https://ionic-final-5c3d5.firebaseio.com",
+    projectId: "ionic-final-5c3d5",
+    storageBucket: "ionic-final-5c3d5.appspot.com",
+    messagingSenderId: "1049109689091",
+    appId: "1:1049109689091:web:c59d284e7348d533"
   }
 };
 

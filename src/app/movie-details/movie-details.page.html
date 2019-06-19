@@ -32,8 +32,31 @@
         <ion-icon name="contacts" slot="start"></ion-icon>
         <ion-label text-wrap>{{information.Actors}}</ion-label>
       </ion-item>
-      <ion-button expend="full" (click)="openWebsite()" *ngIf="information.Website && information.Website !='N/A'">Open Website</ion-button>
+      <ion-button expend="block" (click)="openWebsite()" *ngIf="information.Website && information.Website !='N/A'">Open Website</ion-button>
+      <br/>
+      <ion-button expend="block" *ngIf="afAuth.auth.currentUser" color="secondary" (click) ="displayInput()" >Reviews</ion-button>
+      <ion-item *ngIf="showInputfield " text-wrap>
+
+          <ion-input *ngIf="showInputfield  "[(ngModel)]="inputString" name = "inputItem" placeholder="Enter comment"></ion-input>
+      </ion-item>
+        <br>
+        <ion-button *ngIf="showInputfield  " (click)="updateDetail()">Submit</ion-button>
+
+      <ion-card-content>
+        <ion-list>
+            <ion-item *ngFor = "let item of items  | async" >
+              <ion-avatar slot="start">
+                  <img [src]="item.portrait" >
+                </ion-avatar>
+                <ion-label text-wrap>
+                    <h3>{{item.userDisplayName}}</h3>
+                    {{item.comment}}
+                </ion-label>
+            </ion-item>
+        </ion-list>
+      </ion-card-content>
     </ion-card-content>
 
   </ion-card>
+  
 </ion-content>

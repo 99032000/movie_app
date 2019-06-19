@@ -1,15 +1,31 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab Three
+     Setting
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<firebase-ui></firebase-ui>
+<firebase-ui *ngIf="!afAuth.auth.currentUser"></firebase-ui>
 <h1 *ngIf="afAuth.auth.currentUser != null">
   Welcome {{afAuth.auth.currentUser.displayName}}
+  <ion-avatar>
+      <img [src] ="imageURL">
+    </ion-avatar>
 </h1>
-<ion-button *ngIf="afAuth.auth.currentUser" (click)= "signOut()">Sign out</ion-button>
+<ion-button class="googleplus" color="danger" *ngIf="!afAuth.auth.currentUser" (click)="googleLogin()">Login in with<ion-icon name="logo-googleplus"></ion-icon></ion-button>
+<ion-button *ngIf="afAuth.auth.currentUser" (click)="selectImage()">Change Portrait</ion-button>
+
+<ion-button *ngIf="afAuth.auth.currentUser" (click) ="ShowInput()">update display name</ion-button>
+<ion-item *ngIf="showInputfield && afAuth.auth.currentUser" text-wrap>
+
+    <ion-input *ngIf="showInputfield  && afAuth.auth.currentUser"[(ngModel)]="inputString" name = "inputItem" placeholder="Enter displayName"></ion-input>
+</ion-item>
+  <br>
+  <ion-button *ngIf="showInputfield  && afAuth.auth.currentUser" (click)="updateProfile()">update</ion-button>
 </ion-content> 
+<ion-footer>
+    <ion-button slot="end" *ngIf="afAuth.auth.currentUser" (click)= "signOut()">Sign out</ion-button>
+</ion-footer>
+

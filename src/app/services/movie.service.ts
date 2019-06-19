@@ -20,7 +20,7 @@ export class MovieService {
   constructor(private http: HttpClient) { }
 
   searchData(title: string, type: SearchType): Observable<any> {
-    return this.http.get(this.url + '?s=' + title + '&type=' + type + '&apikey=' + this.apiKey)
+    return this.http.get(this.url + '?s=' + title + '&type=' + type +'&apikey=' + this.apiKey)
       .pipe(
         map(results => {
           console.log('result', results);
