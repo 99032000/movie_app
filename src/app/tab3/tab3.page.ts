@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
-import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import {  AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -41,7 +41,7 @@ export class Tab3Page {
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.email = user.email;
-        console.log(this.afstore.collection('portaits'));
+        //console.log(this.afstore.collection('portaits'));
         this.afstore.collection('portraits').doc<any>(this.email).valueChanges().subscribe((data) => {
           if (data) {
             this.imageURL = data.downloadURL;
